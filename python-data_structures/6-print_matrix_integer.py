@@ -9,4 +9,3 @@ def print_matrix_integer(matrix=[[]]):
                 # The last ele shoudn't have any space
                 print("{:d}".format(row[i]), end="")
         print()  # new line
-    
