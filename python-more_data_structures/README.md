@@ -1,0 +1,1 @@
+This is the directory for python more data structures practices.
