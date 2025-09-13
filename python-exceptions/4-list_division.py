@@ -4,7 +4,7 @@ def list_division(my_list_1, my_list_2, list_length):
     result = []
 
     for i in range(list_length):
-        value = 0  #  Default result for each position
+        value = 0  # Default result for each position
 
         try:
             # Try to divide the elements at index i
