@@ -5,6 +5,16 @@ the integer addition of `a` and `b`. Arguments may be ints or floats;
 floats are cast to ints before addition. Otherwise a `TypeError` is raised.
 """
 
+
+def _is_bad_float(x):
+    """Return True if x is NaN or Infinity (no imports used)."""
+    # NaN is the only float that is not equal to itself
+    if x != x:
+        return True
+    # Detect +/-Infinity using float('inf') sentinels
+    inf = float('inf')
+    return x == inf or x == -inf
+
 def add_integer(a, b=98):
     """Return the integer sum of a and b.
 
@@ -19,9 +29,9 @@ def add_integer(a, b=98):
     Returns:
         int: the addition of `a` and `b`.
     """
-    if a is None or (type(a) is not int and type(a) is not float):
+    if not isinstance(a, (int, float)) or (isinstance(a, float) and _is_bad_float(a)):
         raise TypeError("a must be an integer")
-    if b is None or (type(b) is not int and type(b) is not float):
+    if not isinstance(b, (int, float)) or (isinstance(b, float) and _is_bad_float(b)):
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
