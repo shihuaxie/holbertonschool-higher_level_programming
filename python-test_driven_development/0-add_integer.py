@@ -10,17 +10,18 @@ def add_integer(a, b=98):
 
     Rules:
     - `a` and `b` must be integers or floats.
-    - If they are floats, they are cast to ints (truncation).
-    - Otherwise raise TypeError with the exact messages:
-      * "a must be an integer"
-      * "b must be an integer"
+    - Floats are truncated via ``int()`` before addition.
+    - NaN and Infinity are not accepted.
+    - On type violation raise exactly:
+        * TypeError("a must be an integer")
+        * TypeError("b must be an integer")
 
     Returns:
         int: the addition of `a` and `b`.
     """
-    if not isinstance(a, (int, float)):
+    if a is None or (type(a) is not int and type(a) is not float):
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if b is None or (type(b) is not int and type(b) is not float):
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
