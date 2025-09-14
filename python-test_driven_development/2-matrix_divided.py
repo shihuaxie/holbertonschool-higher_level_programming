@@ -6,6 +6,11 @@ def _is_num(x):
     return isinstance(x, (int, float))
 
 
+def _is_bad_float(x):
+    """Return True if x is NaN or +/-Infinity (no imports)."""
+    return isinstance(x, float) and (x != x or x in (float('inf'), -float('inf')))
+
+
 def matrix_divided(matrix, div):
     """Return a new matrix with each element divided by `div`.
 
@@ -22,7 +27,7 @@ def matrix_divided(matrix, div):
     - Result elements are rounded to 2 decimal places.
     - Original matrix is not modified.
     """
-    # Validate matrix structure and element types
+    # Validate matrix
     if (not isinstance(matrix, list) or matrix == [] or
             any(not isinstance(row, list) or row == [] for row in matrix) or
             any(not _is_num(n) for row in matrix for n in row)):
@@ -30,16 +35,15 @@ def matrix_divided(matrix, div):
             "matrix must be a matrix (list of lists) of integers/floats"
         )
 
-    # Validate uniform row size
     row_len = len(matrix[0])
     if any(len(row) != row_len for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
 
-    # Validate divisor
-    if not _is_num(div):
+    # Validate div
+    if not _is_num(div) or _is_bad_float(div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    # Compute divided matrix (rounded to 2 decimals)
+    # Compute new matrix
     return [[round(n / div, 2) for n in row] for row in matrix]
