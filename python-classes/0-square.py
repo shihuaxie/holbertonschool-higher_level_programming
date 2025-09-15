@@ -3,7 +3,6 @@
 
 
 class Square:
-    pass
     """
         class Suqare
 
@@ -11,3 +10,4 @@ class Square:
 
         returns: nothing
     """
+    pass
