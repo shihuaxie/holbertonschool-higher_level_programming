@@ -1,0 +1,38 @@
+The ``text_indentation`` doctests
+=================================
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Tests:
+----------
+>>> text_indentation("Hello.  How are you?Fine:OK")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+Fine:
+<BLANKLINE>
+OK
+
+>>> text_indentation("A:B. C? D")
+A:
+<BLANKLINE>
+B.
+<BLANKLINE>
+C?
+<BLANKLINE>
+D
+
+Type validation
+---------------
+>>> text_indentation(123)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+Missing argument
+----------------
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
