@@ -40,15 +40,23 @@ class Square:
 
     def my_print(self):
         """
-        Prints in stdout the square with the character #
+        Prints in stdout the square with the character '#'
 
         If size is 0, prints an empty line.
+
+        Position is used to set the horizontal and vertical offsite.
         """
         if self.__size == 0:
             print("")    # empty line
-        else:
-            for _ in range(self.__size):
-                print("#" * self.__size)
+            return
+        # Vertical offset (position[1])
+        for _ in range(self.__position[1]):
+            print("")
+
+        # Each line of the square
+        for _ in range(self.__size):
+            # Horizontal offset  (position[0])
+            print(" " * self.__position[0] + "#" * self.__size)
 
     # Define a property
     @property       # Getter
@@ -73,6 +81,12 @@ class Square:
     @position.setter
     def position(self, value):
         """ Set the position of the square. """
-        if (not isinstance(value, tuple)):
+        if (not isinstance(value, tuple) or
+                # case: there should be 2 ele in tuple.
+                len(value) != 2 or
+                # case: every ele in the tuple must be an int.
+                not all(isinstance(num, int) for num in value) or
+                # case: every ele in the tuple must be positive int.
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
