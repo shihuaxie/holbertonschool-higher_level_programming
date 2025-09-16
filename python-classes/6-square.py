@@ -25,38 +25,10 @@ class Square:
         if (size < 0):
             raise ValueError("size must be >= 0")
 
-        self.__size = size
-        self.__position = position
-
-    # area is an instance method
-    def area(self):
-        """
-        Calculate the area of the square.
-
-        Returns:
-            int: the area of the square.
-        """
-        return self.__size ** 2
-
-    def my_print(self):
-        """
-        Prints in stdout the square with the character '#'
-
-        If size is 0, prints an empty line.
-
-        Position is used to set the horizontal and vertical offsite.
-        """
-        if self.__size == 0:
-            print("")    # empty line
-            return
-        # Vertical offset (position[1])
-        for _ in range(self.__position[1]):
-            print("")
-
-        # Each line of the square
-        for _ in range(self.__size):
-            # Horizontal offset  (position[0])
-            print(" " * self.__position[0] + "#" * self.__size)
+        # self.__position = position is incorrect
+        # bcz position & size  must be validated by setter
+        self.size = size
+        self.position = position
 
     # Define a property
     @property       # Getter
@@ -90,3 +62,35 @@ class Square:
                 not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
+    # area is an instance method
+    def area(self):
+        """
+        Calculate the area of the square.
+
+        Returns:
+            int: the area of the square.
+        """
+        return self.__size ** 2
+
+    def my_print(self):
+        """
+        Prints in stdout the square with the character '#'
+
+        If size is 0, prints an empty line.
+
+        Position is used to set the horizontal and vertical offsite.
+        """
+        if self.__size == 0:
+            print("")    # empty line
+            return
+        # Example: Square(3, (1, 2))
+        # vertical: position[1] = 2 horizontal: position[0] = 1
+        # Vertical offset (position[1]) print empty line before square
+        for _ in range(self.__position[1]):
+            print("")
+
+        # Each line of the square
+        for _ in range(self.__size):
+            # Horizontal offset  (position[0]) print tabs before each row
+            print(" " * self.__position[0] + "#" * self.__size)

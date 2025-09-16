@@ -18,3 +18,5 @@ print("--")
 
 my_square_4 = Square(2, (3, 5))
 my_square_4.my_print()
+
+print("--")
