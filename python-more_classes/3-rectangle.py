@@ -75,7 +75,3 @@ class Rectangle:
             if h != self.height - 1:  # start new line if it's not last
                 rect_str = rect_str + "\n"
         return rect_str
-
-    def __repr__(self):
-        """Return an official string that can recreate the object."""
-        return f"Rectangle({self.width}, {self.height})"
