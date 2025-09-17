@@ -109,7 +109,7 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
-        # campare the rect_1.area! not rect_1 itself!
-        if rect_1.area == rect_2.area:
+        # campare the rect_1.area()! not rect_1 itself!
+        if rect_1.area() == rect_2.area():
             return rect_1
         return rect_2
