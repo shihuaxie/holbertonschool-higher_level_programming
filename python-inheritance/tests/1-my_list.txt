@@ -1,0 +1,50 @@
+The ``MyList`` module
+=====================
+Using ``MyList``
+
+First import ``MyList`` from the ``1-my_list`` file:
+>>> MyList = __import__('1-my_list').MyList
+
+Tests:
+
+Test - check that sorting works
+>>> my_list = MyList([1, 4, 2, 3, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+Test - list contains float values
+>>> my_list = MyList([1.1, 2, 1])
+>>> my_list.print_sorted()
+[1, 1.1, 2]
+>>> print(my_list)
+[1.1, 2, 1]
+
+Test - list is empty
+>>> my_list = MyList([])
+>>> my_list.print_sorted()
+[]
+>>> print(my_list)
+[]
+
+Test - all values are the same
+>>> my_list = MyList([1, 1, 1, 1])
+>>> my_list.print_sorted()
+[1, 1, 1, 1]
+>>> print(my_list)
+[1, 1, 1, 1]
+
+Test - only one value
+>>> my_list = MyList([888])
+>>> my_list.print_sorted()
+[888]
+>>> print(my_list)
+[888]
+
+Test - list contains non-integer values (string)
+>>> my_list = MyList(["sylvia", 2, 1])
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: '<' not supported between instances of 'int' and 'str'
