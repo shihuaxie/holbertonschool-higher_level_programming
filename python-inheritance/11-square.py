@@ -22,3 +22,7 @@ class Square(Rectangle):
         self.__size = size
         # use super() to use __int__ from parent class Rectangle
         super().__init__(size, size)
+
+    def __str__(self):
+        """Return printable representation: [Square] <size>/<size>."""
+        return f"[Square] {self.__size}/{self.__size}"
