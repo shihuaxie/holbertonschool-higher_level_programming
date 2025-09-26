@@ -29,8 +29,8 @@ class Shape(ABC):
 # Concrete class Circle inherits from Shape
 class Circle(Shape):
     def __init__(self, radius):
-        if radius <= 0:
-            raise ValueError("radius must be greater than 0")
+        #if radius <= 0:
+            #raise ValueError("radius must be greater than 0")
         self._radius = radius
 
     def area(self):
@@ -43,10 +43,10 @@ class Circle(Shape):
 # Concrete class Rectangle inherits from Shape
 class Rectangle(Shape):
     def __init__(self, width, height):
-        if width <= 0:
-            raise ValueError("width must be greater than 0")
-        if height <= 0:
-            raise ValueError("height must be greater than 0")
+        #if width <= 0:
+            #raise ValueError("width must be greater than 0")
+        #if height <= 0:
+            #raise ValueError("height must be greater than 0")
         self._width = width
         self._height = height
 
