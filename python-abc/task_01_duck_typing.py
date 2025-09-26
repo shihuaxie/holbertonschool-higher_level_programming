@@ -37,7 +37,8 @@ class Circle(Shape):
         return math.pi * self._radius * self._radius
 
     def perimeter(self):
-        return 2 * math.pi * self._radius
+        # handle negative radius by using its magnitude
+        return 2 * math.pi * abs(self._radius)
 
 
 # Concrete class Rectangle inherits from Shape
