@@ -8,5 +8,5 @@ def class_to_json(obj):
     The returned dict contains the instance attributes only (obj.__dict__),
     which the task guarantees are already JSON-serializable types.
     """
-    #Every python obj has a attribute __dict__
+    # Every python obj has a attribute __dict__
     return obj.__dict__
