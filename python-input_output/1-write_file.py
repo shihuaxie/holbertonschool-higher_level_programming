@@ -2,7 +2,8 @@
 """
 Module: 1-write_file
 Function: write_file
-Writes a string to a text file (UTF8) and returns the number of characters written.
+Writes a string to a text file (UTF8)
+and returns the number of characters written.
 """
 
 
@@ -14,7 +15,7 @@ def write_file(filename="", text=""):
     Args:
         filename (str): The file name
         text (str): The string to write
-    
+
     Returns:
         int: Number of characters written
     """
