@@ -10,7 +10,7 @@ def write_file(filename="", text=""):
     """
     Writes a string to a text file (UTF8).
     Overwrites the file if it already exists.
-    
+
     Args:
         filename (str): The file name
         text (str): The string to write
