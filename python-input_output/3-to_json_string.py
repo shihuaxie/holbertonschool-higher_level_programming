@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import json
+"""Module that returns the JSON representation of an object (string)."""
 
-"""Nameless module"""
+import json
 
 
 def to_json_string(my_obj):
