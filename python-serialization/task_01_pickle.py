@@ -21,7 +21,7 @@ class CustomObject:
         try:
             with open(filename, "wb") as file:
                 pickle.dump(self, file)
-        except (FileNotFoundError, pickle.PickleError, OSError):
+        except Exception:
             return None
 
     @classmethod
