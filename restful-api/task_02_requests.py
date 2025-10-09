@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """This module fetches posts from JSONPlaceholder using requests."""
 import requests
 import csv
@@ -11,18 +11,22 @@ def fetch_and_print_posts():
     res = requests.get(URL)
     print("Status Code:", res.status_code)
 
-    if res.status_code == 200:
-        posts = res.json()
-        for post in posts:
-            print(post["title"])
+    if res.status_code != 200:
+        return
+
+    posts = res.json()
+    for post in posts:
+        print(post["title"])
 
 
 def fetch_and_save_posts():
     """Fetch all posts and save them into posts.csv with id, title, body."""
     res = requests.get(URL)
 
-    if res.status_code == 200:
-        posts = res.json()
+    if res.status_code != 200:
+        return
+
+    posts = res.json()
 
     # Get id, title, and body
     data_rows = [
