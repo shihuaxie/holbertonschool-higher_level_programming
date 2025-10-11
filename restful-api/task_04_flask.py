@@ -5,20 +5,7 @@ from flask import request
 # create application
 app = Flask(__name__)
 
-users = {
-    "jane": {
-        "username": "jane",
-        "name": "Jane",
-        "age": 28, "city":
-        "Los Angeles"
-        },
-    "john": {
-        "username": "john",
-        "name": "John",
-        "age": 30,
-        "city": "New York"
-        }
-    }
+users = {}
 
 
 # task 1: define the endpoint
