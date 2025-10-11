@@ -11,7 +11,7 @@ users = {}
 # task 1: define the endpoint
 @app.route("/")
 def home():
-    return "<p>Welcome to the Flask API!</p>"
+    return "Welcome to the Flask API!"
 
 
 # task 2: return json res
