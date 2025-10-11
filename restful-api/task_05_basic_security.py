@@ -55,7 +55,7 @@ def login():
     Receive JSON: {"username": "...", "password": "..."}
     Authenticate and return {"access_token": "<JWT>"}，fail with 401
     """
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
     username = data.get("username")
     password = data.get("password")
 
@@ -67,7 +67,7 @@ def login():
     token = create_access_token(
         identity={"username": username, "role": user["role"]}
         )
-    return jsonify({"access_tokrn": token})
+    return jsonify({"access_token": token}), 200
 
 
 @app.route("/jwt-protected")
