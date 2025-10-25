@@ -30,4 +30,3 @@ def list_all_states(username, password, dbname):
 
 if __name__ == "__main__":
     list_all_states(sys.argv[1], sys.argv[2], sys.argv[3])
-
