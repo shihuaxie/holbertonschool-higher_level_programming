@@ -19,10 +19,10 @@ def list_all_states_by_user_input(username, password, dbname, stname):
     cursor = db.cursor()
 
     query = (
-        "SELECT * FROM states"
-        "WHERE BINARY name = '{}'"
+        "SELECT * FROM states "
+        "WHERE BINARY name = '{}' "
         "ORDER BY states.id ASC"
-        .format(stname)
+    ).format(stname)
 
     cursor.execute(query)
     results = cursor.fetchall()
