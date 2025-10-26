@@ -25,7 +25,7 @@ def list_cities_of_state(username, password, dbname, state_name):
         (state_name,),
     )
     results = cursor.fetchall()
- 
+
     cities = [row[0] for row in results]
     print(", ".join(cities))
 
