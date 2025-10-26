@@ -20,7 +20,8 @@ def safe_filter_states(username, password, dbname, stname):
 
     cursor = db.cursor()
     cursor.execute(
-        "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC", (stname,)
+        "SELECT * FROM states"
+        "WHERE name = %s ORDER BY states.id ASC", (stname,)
     )
     results = cursor.fetchall()
 
@@ -30,8 +31,7 @@ def safe_filter_states(username, password, dbname, stname):
     cursor.close()
     db.close()
 
-
-    
+   
 if __name__ == "__main__":
     safe_filter_states(
         sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
