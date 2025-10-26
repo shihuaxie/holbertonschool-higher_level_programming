@@ -17,9 +17,14 @@ def list_all_states_by_user_input(username, password, dbname, stname):
     )
 
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(stname)
-    cursor.execute(query)
 
+    query = (
+        "SELECT * FROM states"
+        "WHERE BINARY name = '{}'"
+        "ORDER BY states.id ASC"
+        .format(stname)
+
+    cursor.execute(query)
     results = cursor.fetchall()
 
     for row in results:
@@ -30,4 +35,6 @@ def list_all_states_by_user_input(username, password, dbname, stname):
 
 
 if __name__ == "__main__":
-    list_all_states_by_user_input(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    list_all_states_by_user_input(
+        sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    )
