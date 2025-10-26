@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
 
+
 def list_states(username: str, password: str, dbname: str) -> None:
     # 1) Create Engine
     engine = create_engine(
@@ -26,6 +27,7 @@ def list_states(username: str, password: str, dbname: str) -> None:
             print(f"{state.id}: {state.name}")
     finally:
         session.close()
+
 
 if __name__ == "__main__":
     list_states(sys.argv[1], sys.argv[2], sys.argv[3])
