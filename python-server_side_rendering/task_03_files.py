@@ -15,7 +15,15 @@ def read_json_file():
     try:
         with open("products.json", "r") as f:
             data = json.load(f)
-            return data.get("products", [])
+
+            # if the outter of json is a list:[{...}, {...}]
+            if isinstance(data, list):
+                return data
+            # if the outter of json is obj:{"products":[...]}
+            if isinstance(data, dict):
+                return data.get("products", [])
+            # other sceneries: return []
+            return []
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
